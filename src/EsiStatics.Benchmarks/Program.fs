@@ -7,13 +7,14 @@ module Program=
     [<EntryPoint>]
     let main argv =
     
-        let switch =
-            BenchmarkSwitcher [|    typedefof<SolarSystemGetBenchmark>;
+        let benchmarks = [|    typedefof<SolarSystemGetBenchmark>;
                                     typedefof<SolarSystemScanBenchmark>;
                                     typedefof<SolarSystemDeepGetBenchmark>;
                                     typedefof<SolarSystemCelestialDistancesBenchmark>;
                                     typedefof<SolarSystemNeighboursBenchmark>;
                                     |]
-    
-        switch.Run argv |> ignore
+
+        
+        let switch = BenchmarkSwitcher benchmarks
+        switch.RunAll() |> ignore
         0 
