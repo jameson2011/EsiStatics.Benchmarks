@@ -5,6 +5,7 @@ module Program=
     open System
     open BenchmarkDotNet.Running
 
+
     [<EntryPoint>]
     let main argv =
     
