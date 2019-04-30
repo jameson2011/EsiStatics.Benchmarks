@@ -1,8 +1,10 @@
-﻿namespace EsiStatics.Benchmarks
+namespace EsiStatics.Benchmarks
 
 module Program=
+
     open System
     open BenchmarkDotNet.Running
+
 
     [<EntryPoint>]
     let main argv =
