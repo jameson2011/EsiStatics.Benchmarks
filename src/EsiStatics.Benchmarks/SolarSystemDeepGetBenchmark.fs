@@ -14,7 +14,7 @@ type SolarSystemDeepGetBenchmark()=
     
     
 
-    [<Params(30005003, 30000142, 30002089, 31000005)>]
+    [<Params(KnownSystems.adirain, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
     member val SolarSystemId = 0 with get, set
     
     [<Benchmark>]

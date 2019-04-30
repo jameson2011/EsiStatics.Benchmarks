@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Utilities.fs" />
     <Compile Include="SolarSystemNeighboursBenchmark.fs" />
     <Compile Include="SolarSystemCelestialDistancesBenchmark.fs" />
     <Compile Include="SolarSystemDeepGetBenchmark.fs" />
