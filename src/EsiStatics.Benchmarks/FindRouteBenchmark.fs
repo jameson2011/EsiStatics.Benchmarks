@@ -12,7 +12,7 @@ open EsiStatics
 type FindRouteBenchmark()=
     
     
-    [<Params(KnownSystems.adirain, KnownSystems.avenod, KnownSystems.deepari, KnownSystems.``QX-LIJ``, KnownSystems.``0OYZ-G``)>]
+    [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.avenod, KnownSystems.deepari, KnownSystems.``QX-LIJ``, KnownSystems.``0OYZ-G``)>]
     member val StartSolarSystemId = 0 with get, set
 
     

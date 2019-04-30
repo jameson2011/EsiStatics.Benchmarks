@@ -10,7 +10,7 @@ open BenchmarkDotNet.Jobs
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
 type SolarSystemGetBenchmark()=
     
-    [<Params(KnownSystems.adirain, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
+    [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
     member val SolarSystemId = 0 with get, set
     
     [<Benchmark>]

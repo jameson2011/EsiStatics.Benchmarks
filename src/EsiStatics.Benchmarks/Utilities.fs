@@ -2,6 +2,9 @@
 
 module KnownSystems =
     [<Literal>]
+    let heild = 30002390
+
+    [<Literal>]
     let adirain = 30005003
 
     [<Literal>]

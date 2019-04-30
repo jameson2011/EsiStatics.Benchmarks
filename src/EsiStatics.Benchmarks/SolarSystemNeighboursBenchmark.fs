@@ -15,7 +15,7 @@ type SolarSystemNeighboursBenchmark()=
     
     
 
-    [<Params(KnownSystems.adirain, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
+    [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
     member val SolarSystemId = 0 with get, set
     
     [<Params(1, 2, 3, 4, 5)>]
