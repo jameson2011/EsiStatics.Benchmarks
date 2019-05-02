@@ -27,3 +27,10 @@ module KnownSystems =
 
     [<Literal>]
     let ``0OYZ-G`` = 30004483
+
+    [<Literal>]
+    let tsuguwa = 30001375
+
+    [<Literal>]
+    let zemalu = 30000055
+
