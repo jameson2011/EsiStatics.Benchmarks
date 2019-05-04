@@ -9,13 +9,15 @@ module Program=
     [<EntryPoint>]
     let main argv =
     
-        let benchmarks = [|    typedefof<SolarSystemGetBenchmark>;
-                                    typedefof<SolarSystemScanBenchmark>;
-                                    typedefof<SolarSystemDeepGetBenchmark>;
-                                    typedefof<SolarSystemCelestialDistancesBenchmark>;
-                                    typedefof<SolarSystemNeighboursBenchmark>;
-                                    typedefof<FindRouteBenchmark>;
-                                    |]
+        let benchmarks = [|     typedefof<SolarSystemGetBenchmark>;
+                                typedefof<SolarSystemScanBenchmark>;
+                                typedefof<SolarSystemDeepGetBenchmark>;
+                                typedefof<SolarSystemCelestialDistancesBenchmark>;
+                                typedefof<SolarSystemNeighboursBenchmark>;
+                                typedefof<FindRouteBenchmark>;
+                                typedefof<SolarsSystemFinderBenchmark>;
+                                
+                                |]
 
         
         let switch = BenchmarkSwitcher benchmarks

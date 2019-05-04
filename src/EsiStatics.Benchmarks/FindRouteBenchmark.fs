@@ -9,6 +9,7 @@ open EsiStatics
 [<CoreJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
+[<GcServer(true)>]
 type FindRouteBenchmark()=
     
     

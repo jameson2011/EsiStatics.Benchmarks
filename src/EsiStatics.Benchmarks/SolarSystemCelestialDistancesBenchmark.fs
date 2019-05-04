@@ -10,6 +10,7 @@ open EsiStatics
 [<CoreJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
+[<GcServer(true)>]
 type SolarSystemCelestialDistancesBenchmark()=
     
     
@@ -18,7 +19,7 @@ type SolarSystemCelestialDistancesBenchmark()=
     member val SolarSystemId = 0 with get, set
     
     [<Benchmark>]
-    member this.GetSystem() =
+    member this.GetCelestialDistance() =
         let sys = EsiStatics.SolarSystems.byId this.SolarSystemId |> Option.get
         
         let pos = Position.ofCoordinates(1., 1., 1.)

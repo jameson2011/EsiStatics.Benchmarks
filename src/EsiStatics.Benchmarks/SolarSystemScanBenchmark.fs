@@ -9,10 +9,11 @@ open EsiStatics
 [<CoreJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
+[<GcServer(true)>]
 type SolarSystemScanBenchmark()=
     
     [<Benchmark>]
-    member this.GetSystems() =
+    member this.ScanSystems() =
         let ss = Regions.all()
                     |> Seq.collect (fun r -> r.Constellations())
                     |> Seq.collect (fun c -> c.SolarSystems())

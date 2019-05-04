@@ -8,6 +8,7 @@ open BenchmarkDotNet.Jobs
 [<CoreJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
+[<GcServer(true)>]
 type SolarSystemGetBenchmark()=
     
     [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]

@@ -11,6 +11,7 @@ open Microsoft.CodeAnalysis
 [<CoreJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
+[<GcServer(true)>]
 type SolarSystemNeighboursBenchmark()=
     
     
@@ -22,7 +23,7 @@ type SolarSystemNeighboursBenchmark()=
     member val Depth = 0 with get, set
 
     [<Benchmark>]
-    member this.GetSystem() =
+    member this.GetSystemNeighbours() =
         let sys = EsiStatics.SolarSystems.byId this.SolarSystemId |> Option.get
         
         this.Depth |> UniverseExtensions.Neighbours sys |> List.ofSeq

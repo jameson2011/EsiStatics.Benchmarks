@@ -10,6 +10,7 @@ open EsiStatics
 [<CoreJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
+[<GcServer(true)>]
 type SolarSystemDeepGetBenchmark()=
     
     
@@ -18,7 +19,7 @@ type SolarSystemDeepGetBenchmark()=
     member val SolarSystemId = 0 with get, set
     
     [<Benchmark>]
-    member this.GetSystem() =
+    member this.GetCelestials() =
         let sys = EsiStatics.SolarSystems.byId this.SolarSystemId |> Option.get
         
         
