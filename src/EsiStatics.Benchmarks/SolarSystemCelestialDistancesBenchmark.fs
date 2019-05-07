@@ -13,18 +13,22 @@ open EsiStatics
 [<GcServer(true)>]
 type SolarSystemCelestialDistancesBenchmark()=
     
-    
+    let mutable solarSystem : SolarSystem option = None
 
-    [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
-    member val SolarSystemId = 0 with get, set
+    [<IterationSetup>]
+    member this.Setup()=
+        let finder = new SolarSystemFinder()
+        solarSystem <- finder.Find(this.SolarSystemName) |> Seq.tryHead
+    
+    [<Params("Adirain", "Heild", "Jita", "Avenod", "Thera")>]
+    member val SolarSystemName = "" with get, set
     
     [<Benchmark>]
     member this.GetCelestialDistance() =
-        let sys = EsiStatics.SolarSystems.byId this.SolarSystemId |> Option.get
         
         let pos = Position.ofCoordinates(1., 1., 1.)
 
-        let celestials = pos |> UniverseExtensions.CelestialDistances sys |> List.ofSeq
+        let celestials = pos |> UniverseExtensions.CelestialDistances (Option.get solarSystem) |> List.ofSeq
         
         celestials |> List.head
         

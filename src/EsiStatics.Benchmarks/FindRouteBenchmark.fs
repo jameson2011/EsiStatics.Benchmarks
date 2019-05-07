@@ -12,18 +12,27 @@ open EsiStatics
 [<GcServer(true)>]
 type FindRouteBenchmark()=
     
-    
-    [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.avenod, KnownSystems.deepari, KnownSystems.``QX-LIJ``, KnownSystems.``0OYZ-G``, KnownSystems.tsuguwa)>]
-    member val StartSolarSystemId = 0 with get, set
+    let mutable fromSolarSystem : SolarSystem option = None
+    let mutable toSolarSystem : SolarSystem option = None
 
+    [<IterationSetup>]
+    member this.Setup()=
+        let finder = new SolarSystemFinder()
+        fromSolarSystem <- finder.Find(this.FromSolarSystemName) |> Seq.tryHead
+        toSolarSystem <- finder.Find(this.ToSolarSystemName) |> Seq.tryHead
     
-    [<Params(KnownSystems.jita, KnownSystems.zemalu)>]
-    member val FinishSystemId = 0 with get, set
+    [<Params("Adirain", "Heild", "Avenod", "Deepari", "QX-LIJ", "0OYZ-G", "Tsuguwa")>]
+    member val FromSolarSystemName = "" with get, set
+    
+    [<Params("Jita", "Zemalu")>]
+    member val ToSolarSystemName = "" with get, set
+
+
 
     [<Benchmark>]
     member this.FindRoute() =
-        let start = this.StartSolarSystemId |> SolarSystems.byId |> Option.get
-        let finish = this.FinishSystemId |> SolarSystems.byId |> Option.get
+        let start = fromSolarSystem |> Option.get
+        let finish = toSolarSystem |> Option.get
 
         let route = (start, finish) |> Navigation.findRoute Navigation.euclideanSystemDistance
         

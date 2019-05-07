@@ -13,16 +13,19 @@ open EsiStatics
 [<GcServer(true)>]
 type SolarSystemDeepGetBenchmark()=
     
-    
+    let mutable solarSystem : SolarSystem option = None
 
-    [<Params(KnownSystems.adirain, KnownSystems.heild, KnownSystems.jita, KnownSystems.avenod, KnownSystems.thera)>]
-    member val SolarSystemId = 0 with get, set
+    [<IterationSetup>]
+    member this.Setup()=
+        let finder = new SolarSystemFinder()
+        solarSystem <- finder.Find(this.SolarSystemName) |> Seq.tryHead
+    
+    [<Params("Adirain", "Heild", "Jita", "Avenod", "Thera")>]
+    member val SolarSystemName = "" with get, set
+    
     
     [<Benchmark>]
     member this.GetCelestials() =
-        let sys = EsiStatics.SolarSystems.byId this.SolarSystemId |> Option.get
-        
-        
-        sys.Celestials() |> List.ofSeq
+        (Option.get solarSystem).Celestials() |> List.ofSeq
         
 
