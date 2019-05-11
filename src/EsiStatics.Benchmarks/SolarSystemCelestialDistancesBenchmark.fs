@@ -28,7 +28,7 @@ type SolarSystemCelestialDistancesBenchmark()=
         
         let pos = Position.ofCoordinates(1., 1., 1.)
 
-        let celestials = pos |> UniverseExtensions.CelestialDistances (Option.get solarSystem) |> List.ofSeq
+        let celestials = pos |> SolarSystemExts.CelestialDistances (Option.get solarSystem) |> List.ofSeq
         
         celestials |> List.head
         

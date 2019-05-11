@@ -28,7 +28,7 @@ type SolarSystemNeighboursBenchmark()=
 
     [<Benchmark>]
     member this.GetSystemNeighbours() =    
-        this.Depth |> UniverseExtensions.Neighbours (Option.get solarSystem) |> List.ofSeq
+        this.Depth |> SolarSystemExts.Neighbours (Option.get solarSystem) |> List.ofSeq
 
         
         
