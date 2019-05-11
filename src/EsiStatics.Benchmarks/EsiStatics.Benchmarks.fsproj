@@ -8,7 +8,7 @@
     <Compile Include="Utilities.fs" />
     <Compile Include="SolarSystemNeighboursBenchmark.fs" />
     <Compile Include="SolarSystemCelestialDistancesBenchmark.fs" />
-    <Compile Include="SolarSystemDeepGetBenchmark.fs" />
+    <Compile Include="SolarSystemCelestialsBenchmark.fs" />
     <Compile Include="SolarSystemGetBenchmark.fs" />
     <Compile Include="SolarSystemScanBenchmark.fs" />
     <Compile Include="FindRouteBenchmark.fs" />
