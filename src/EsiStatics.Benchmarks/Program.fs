@@ -16,7 +16,9 @@ module Program=
                                 typedefof<SolarSystemNeighboursBenchmark>;
                                 typedefof<FindRouteBenchmark>;
                                 typedefof<SolarsSystemFinderBenchmark>;
-                                
+                                typedefof<AsteroidBeltGetBenchmark>;
+                                typedefof<MoonGetBenchmark>;
+                                typedefof<PlanetGetBenchmark>;
                                 |]
 
         
