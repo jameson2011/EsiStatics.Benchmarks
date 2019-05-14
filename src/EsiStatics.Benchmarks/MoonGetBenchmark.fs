@@ -1,4 +1,4 @@
-﻿namespace EsiStatics.Benchmarks
+namespace EsiStatics.Benchmarks
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
@@ -15,6 +15,6 @@ type MoonGetBenchmark()=
     member val MoonId = 0 with get, set
     
     [<Benchmark>]
-    member this.GetAsteroidBelt() =
+    member this.GetMoon() =
         EsiStatics.Moons.byId this.MoonId
 
