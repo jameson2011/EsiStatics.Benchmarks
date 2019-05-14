@@ -11,7 +11,7 @@ open EsiStatics
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
 [<GcServer(true)>]
-type SolarSystemCelestialsBenchmark()=
+type SolarSystemAsteroidBeltsBenchmark()=
     
     let mutable solarSystem : SolarSystem option = None
 
@@ -24,8 +24,10 @@ type SolarSystemCelestialsBenchmark()=
     member val SolarSystemName = "" with get, set
     
     [<Benchmark>]
-    member this.GetCelestials() =
-        ( Option.get solarSystem ).Celestials() |> Seq.length
+    member this.GetAsteroidBelts() =
+        ( Option.get solarSystem ).Planets() 
+            |> Seq.collect (fun p -> p.AsteroidBelts())
+            |> Seq.length
         
         
         

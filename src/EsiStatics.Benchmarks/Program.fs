@@ -13,6 +13,12 @@ module Program=
                                 typedefof<SolarSystemScanBenchmark>;
                                 typedefof<SolarSystemCelestialDistancesBenchmark>;
                                 typedefof<SolarSystemCelestialsBenchmark>;
+                                typedefof<SolarSystemAsteroidBeltsBenchmark>;
+                                typedefof<SolarSystemMoonsBenchmark>;
+                                typedefof<SolarSystemPlanetsBenchmark>;
+                                typedefof<SolarSystemStarBenchmark>;
+                                typedefof<SolarSystemStargatesBenchmark>;
+                                typedefof<SolarSystemStationsBenchmark>;
                                 typedefof<SolarSystemNeighboursBenchmark>;
                                 typedefof<FindRouteBenchmark>;
                                 typedefof<SolarsSystemFinderBenchmark>;
