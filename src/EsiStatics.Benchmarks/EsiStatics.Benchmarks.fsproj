@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ItemTypesFinderBenchmark.fs" />
     <Compile Include="SolarSystemMoonsBenchmark.fs" />
     <Compile Include="Utilities.fs" />
     <Compile Include="SolarSystemNeighboursBenchmark.fs" />

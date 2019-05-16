@@ -25,6 +25,8 @@ module Program=
                                 typedefof<AsteroidBeltGetBenchmark>;
                                 typedefof<MoonGetBenchmark>;
                                 typedefof<PlanetGetBenchmark>;
+
+                                typedefof<ItemTypesFinderBenchmark>;
                                 |]
 
         
