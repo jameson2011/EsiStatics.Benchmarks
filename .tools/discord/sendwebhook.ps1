@@ -29,6 +29,8 @@ Switch ($STATUS) {
     $STATUS_MESSAGE="Starting"
     Break
   }default {
+    $EMBED_COLOR=10181046
+    $STATUS_MESSAGE=""
     Write-Output "Default!"
     Break
   }
@@ -39,10 +41,9 @@ $AVATAR="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Appveyor_logo
 $COMMIT_SUBJECT="$(git log -1 "$env:BUILD_SOURCEVERSION" --pretty="%s")"
 $URL=$env:BUILD_REPOSITORY_URI
 
-$BUILD_VERSION = [uri]::EscapeDataString($Env:BUILD_BUILDNUMBER)
+
 $TIMESTAMP="$(Get-Date -format s)Z"
 $WEBHOOK_DATA="{
-  ""username"": """",
   ""avatar_url"": ""$AVATAR"",
   ""embeds"": [ {
     ""color"": $EMBED_COLOR,
@@ -57,12 +58,12 @@ $WEBHOOK_DATA="{
     ""fields"": [
       {
         ""name"": ""Commit"",
-        ""value"": ""[``$($env:BUILD_SOURCEVERSION.substring(0, 7))``](https://github.com/$env:BUILD_REPOSITORY_NAME/commit/$env:BUILD_SOURCEVERSION)"",
+        ""value"": ""[``$($env:BUILD_SOURCEVERSION)``](https://github.com/$env:BUILD_REPOSITORY_NAME/commit/$env:BUILD_SOURCEVERSION)"",
         ""inline"": true
       },
       {
         ""name"": ""Branch"",
-        ""value"": ""[``$env:BUILD_SOURCEBRANCH``](https://github.com/$env:BUILD_REPOSITORY_NAME/tree/$env:BUILD_SOURCEBRANCH)"",
+        ""value"": ""[``$($env:BUILD_SOURCEBRANCH)``](https://github.com/$env:BUILD_REPOSITORY_NAME/tree/$env:BUILD_SOURCEBRANCH)"",
         ""inline"": true
       }
     ],
@@ -70,8 +71,10 @@ $WEBHOOK_DATA="{
   } ]
 }"
 
-Invoke-RestMethod -Uri "$WEBHOOK_URL" -Method "POST" -UserAgent "AppVeyor-Webhook" `
-  -ContentType "application/json" -Header @{"X-Author"="k3rn31p4nic#8383"} `
+Write-Host $WEBHOOK_DATA
+
+Invoke-RestMethod -Uri "$WEBHOOK_URL" -Method "POST" -UserAgent "Azure-Webhook" `
+  -ContentType "application/json" -Header @{"X-Author"="Jameson2011"} `
   -Body $WEBHOOK_DATA
 
 Write-Output "[Webhook]: Successfully sent the webhook."
