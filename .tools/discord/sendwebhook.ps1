@@ -57,7 +57,7 @@ $WEBHOOK_DATA="{
     ""fields"": [
       {
         ""name"": ""Commit"",
-        ""value"": ""[$($env:BUILD_SOURCEVERSION.substring(0, 7))))](https://github.com/$env:BUILD_REPOSITORY_NAME/commit/$env:BUILD_SOURCEVERSION)"",
+        ""value"": ""[$($env:BUILD_SOURCEVERSION.substring(0, 7))](https://github.com/$env:BUILD_REPOSITORY_NAME/commit/$env:BUILD_SOURCEVERSION)"",
         ""inline"": true
       },
       {
