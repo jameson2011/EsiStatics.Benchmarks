@@ -35,7 +35,7 @@ Switch ($STATUS) {
     Break
   }
 }
-$AVATAR="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Appveyor_logo.svg/256px-Appveyor_logo.svg.png"
+$AVATAR="https://avatars.slack-edge.com/2019-01-17/528389819366_e7a0672f0480b3e98d21_512.png"
 
 
 $COMMIT_SUBJECT="$(git log -1 "$env:BUILD_SOURCEVERSION" --pretty="%s")"
@@ -49,7 +49,6 @@ $WEBHOOK_DATA="{
     ""color"": $EMBED_COLOR,
     ""author"": {
       ""name"": ""Job #$env:AGENT_JOBNAME (Build #$Env:BUILD_BUILDNUMBER) $STATUS_MESSAGE - $env:BUILD_REPOSITORY_NAME"",
-      ""url"": ""$env:BUILD_BUILDURI"",
       ""icon_url"": ""$AVATAR""
     },
     ""title"": ""$COMMIT_SUBJECT"",
@@ -58,12 +57,12 @@ $WEBHOOK_DATA="{
     ""fields"": [
       {
         ""name"": ""Commit"",
-        ""value"": ""[``$($env:BUILD_SOURCEVERSION)``](https://github.com/$env:BUILD_REPOSITORY_NAME/commit/$env:BUILD_SOURCEVERSION)"",
+        ""value"": ""[$($env:BUILD_SOURCEVERSION.substring(0, 7))))](https://github.com/$env:BUILD_REPOSITORY_NAME/commit/$env:BUILD_SOURCEVERSION)"",
         ""inline"": true
       },
       {
         ""name"": ""Branch"",
-        ""value"": ""[``$($env:BUILD_SOURCEBRANCH)``](https://github.com/$env:BUILD_REPOSITORY_NAME/tree/$env:BUILD_SOURCEBRANCH)"",
+        ""value"": ""[$($env:BUILD_SOURCEBRANCH)](https://github.com/$env:BUILD_REPOSITORY_NAME/tree/$env:BUILD_SOURCEBRANCH)"",
         ""inline"": true
       }
     ],
@@ -71,7 +70,6 @@ $WEBHOOK_DATA="{
   } ]
 }"
 
-Write-Host $WEBHOOK_DATA
 
 Invoke-RestMethod -Uri "$WEBHOOK_URL" -Method "POST" -UserAgent "Azure-Webhook" `
   -ContentType "application/json" -Header @{"X-Author"="Jameson2011"} `
