@@ -10,8 +10,11 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
+- powershell: ./.tools/discord/sendwebhook.ps1 start $(WEBHOOK_URL)
+  displayName: 'notify start'
 - script: .paket\paket.exe restore --group Build
   displayName: 'restore packages'
 - script: build.bat
   displayName: 'Run build'
-
+- powershell: ./.tools/discord/sendwebhook.ps1 success $(WEBHOOK_URL)
+  displayName: 'notify success'
