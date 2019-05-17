@@ -4,6 +4,7 @@ module Program=
 
     open System
     open BenchmarkDotNet.Running
+    open EsiStatics
 
 
     [<EntryPoint>]
@@ -11,7 +12,10 @@ module Program=
     
         let benchmarks = [|     
                                 typedefof<SolarSystemGetBenchmark>;
-
+                                typedefof<AsteroidBeltGetBenchmark>;
+                                typedefof<MoonGetBenchmark>;
+                                typedefof<PlanetGetBenchmark>;
+                                
                                 typedefof<SolarSystemScanBenchmark>;
                                 typedefof<SolarSystemCelestialDistancesBenchmark>;
                                 typedefof<SolarSystemCelestialsBenchmark>;
@@ -22,12 +26,13 @@ module Program=
                                 typedefof<SolarSystemStargatesBenchmark>;
                                 typedefof<SolarSystemStationsBenchmark>;
                                 typedefof<SolarSystemNeighboursBenchmark>;
+                                
                                 typedefof<FindRouteBenchmark>;
+                                
                                 typedefof<SolarsSystemFinderBenchmark>;
-                                typedefof<AsteroidBeltGetBenchmark>;
-                                typedefof<MoonGetBenchmark>;
-                                typedefof<PlanetGetBenchmark>;
-
+                                typedefof<RegionFinderBenchmark>;
+                                typedefof<ConstellationFinderBenchmark>;
+                                
                                 typedefof<ItemTypesFinderBenchmark>;
                                 |]
 
