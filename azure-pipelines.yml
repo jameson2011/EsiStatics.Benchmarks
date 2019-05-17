@@ -1,7 +1,8 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'BenchmarkDotNet.Artifacts\results'
+    ArtifactName: 'EsiStatics.Benchmarks.Results'
+    publishLocation: 'Container'
 
 trigger:
 - master
@@ -16,5 +17,7 @@ steps:
   displayName: 'restore packages'
 - script: build.bat
   displayName: 'Run build'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts'
 - powershell: ./.tools/discord/sendwebhook.ps1 success $(WEBHOOK_URL)
   displayName: 'notify success'
