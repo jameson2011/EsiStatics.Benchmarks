@@ -1,8 +1,4 @@
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'BenchmarkDotNet.Artifacts\results'
-    ArtifactName: 'EsiStatics.Benchmarks.Results'
-    publishLocation: 'Container'
+
 
 trigger:
 - master
@@ -18,6 +14,9 @@ steps:
 - script: build.bat
   displayName: 'Run build'
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifacts'
+  inputs:
+    PathtoPublish: 'BenchmarkDotNet.Artifacts\results'
+    ArtifactName: 'EsiStatics.Benchmarks.Results'
+    publishLocation: 'Container'
 - powershell: ./.tools/discord/sendwebhook.ps1 success $(WEBHOOK_URL)
   displayName: 'notify success'
