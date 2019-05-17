@@ -11,7 +11,7 @@ module Program=
     
         let benchmarks = [|     
                                 typedefof<SolarSystemGetBenchmark>;
-                                (*
+
                                 typedefof<SolarSystemScanBenchmark>;
                                 typedefof<SolarSystemCelestialDistancesBenchmark>;
                                 typedefof<SolarSystemCelestialsBenchmark>;
@@ -29,7 +29,6 @@ module Program=
                                 typedefof<PlanetGetBenchmark>;
 
                                 typedefof<ItemTypesFinderBenchmark>;
-                                *)
                                 |]
 
         
