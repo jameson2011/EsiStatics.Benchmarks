@@ -25,7 +25,7 @@ jobs:
     - powershell: ./.tools/discord/sendwebhook.ps1 success $(WEBHOOK_URL)
       displayName: 'Notify success'
 
-  - job: failure
+  - job: OnBuildFailure
     pool:
       vmImage: 'vs2017-win2016'
     dependsOn: build
