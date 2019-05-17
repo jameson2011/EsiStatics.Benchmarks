@@ -48,7 +48,7 @@ $WEBHOOK_DATA="{
   ""embeds"": [ {
     ""color"": $EMBED_COLOR,
     ""author"": {
-      ""name"": ""Job #$env:AGENT_JOBNAME (Build #$Env:BUILD_BUILDNUMBER) $STATUS_MESSAGE - $env:BUILD_REPOSITORY_NAME"",
+      ""name"": ""Job $env:AGENT_JOBNAME (Build #$Env:BUILD_BUILDNUMBER) $STATUS_MESSAGE - $env:BUILD_REPOSITORY_NAME"",
       ""icon_url"": ""$AVATAR""
     },
     ""title"": ""$COMMIT_SUBJECT"",
