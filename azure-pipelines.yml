@@ -3,11 +3,12 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'vs2017-win2016'
 
 jobs:
   - job: build
+    pool:
+      vmImage: 'vs2017-win2016'
+
     steps:
     - powershell: ./.tools/discord/sendwebhook.ps1 start $(WEBHOOK_URL)
       displayName: 'Notify start'
@@ -25,6 +26,8 @@ jobs:
       displayName: 'Notify success'
 
   - job: failure
+    pool:
+      vmImage: 'vs2017-win2016'
     dependsOn: build
     condition: failed()
     steps:
