@@ -19,7 +19,7 @@ type ItemTypesFinderBenchmark()=
         finder <- new ItemTypesFinder()
         finder.FindItemTypes(System.Guid.NewGuid().ToString()) |> Seq.length |> ignore
 
-    [<Params("rifter", "federation navy comet", "hecate", "erebus", "200mm autocannon ii", "light neutron blaster ii", "zainou")>]
+    [<Params("rifter", "federation navy comet", "hecate", "erebus", "200mm autocannon ii", "light neutron blaster ii", "zainou", "zzz")>]
     member val Name = "" with get, set
     
     [<Benchmark>]
