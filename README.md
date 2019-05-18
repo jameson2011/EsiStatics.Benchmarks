@@ -2,4 +2,5 @@
 
 Benchmark testing for [EsiStatics](https://github.com/jameson2011/EsiStatics)
 
+
 [![Build Status](https://dev.azure.com/j7db/EsiStatics.Benchmarks/_apis/build/status/jameson2011.EsiStatics.Benchmarks?branchName=master)](https://dev.azure.com/j7db/EsiStatics.Benchmarks/_build/latest?definitionId=3&branchName=master)
