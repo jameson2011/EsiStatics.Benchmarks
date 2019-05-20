@@ -12,11 +12,10 @@ open EsiStatics
 [<GcServer(true)>]
 type SolarsSystemFinderBenchmark()=
     
-    let mutable finder = new SolarSystemFinder()
+    let finder = new SolarSystemFinder(true)
 
     [<GlobalSetup>]
     member this.Setup()=
-        finder <- new SolarSystemFinder()
         finder.Find(System.Guid.NewGuid().ToString()) |> Seq.length |> ignore
     
     [<Params("adirain", "heild", "avenod", "deepari", "QX-LIJ", "0OYZ-G", "tsuguwa", "jita", "zemalu")>]

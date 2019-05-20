@@ -12,12 +12,7 @@ open EsiStatics
 [<GcServer(true)>]
 type RegionFinderBenchmark()=
     
-    let mutable finder = new RegionFinder()
-
-    [<GlobalSetup>]
-    member this.Setup()=
-        finder <- new RegionFinder()
-        finder.Find(System.Guid.NewGuid().ToString()) |> Seq.length |> ignore
+    let finder = new RegionFinder(true)
     
     [<Params("essence", "domain", "delve", "metropolis", "catch", "the bleak lands")>]
     member val RegionName = "" with get, set

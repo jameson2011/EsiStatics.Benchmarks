@@ -14,10 +14,10 @@ type FindRouteBenchmark()=
     
     let mutable fromSolarSystem : SolarSystem option = None
     let mutable toSolarSystem : SolarSystem option = None
-
+    let finder = new SolarSystemFinder(true)
+    
     [<IterationSetup>]
     member this.Setup()=
-        let finder = new SolarSystemFinder()
         fromSolarSystem <- finder.Find(this.FromSolarSystemName) |> Seq.tryHead
         toSolarSystem <- finder.Find(this.ToSolarSystemName) |> Seq.tryHead
     

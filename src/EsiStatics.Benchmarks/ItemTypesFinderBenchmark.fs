@@ -12,17 +12,12 @@ open EsiStatics
 [<GcServer(true)>]
 type ItemTypesFinderBenchmark()=
     
-    let mutable finder = new ItemTypesFinder()
+    let finder = new ItemTypesFinder(true)
     
-    [<GlobalSetup>]
-    member this.Setup()=
-        finder <- new ItemTypesFinder()
-        finder.FindItemTypes(System.Guid.NewGuid().ToString()) |> Seq.length |> ignore
-
     [<Params("rifter", "federation navy comet", "hecate", "erebus", "200mm autocannon ii", "light neutron blaster ii", "zainou", "zzz")>]
     member val Name = "" with get, set
     
     [<Benchmark>]
     member this.GetItemTypes() =
-        finder.FindItemTypes(this.Name) |> Seq.length
+        finder.Find(this.Name) |> Seq.length
 

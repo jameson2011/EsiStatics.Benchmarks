@@ -12,11 +12,10 @@ open EsiStatics
 [<GcServer(true)>]
 type ConstellationFinderBenchmark()=
     
-    let mutable finder = new ConstellationFinder()
+    let finder = new ConstellationFinder(true)
 
     [<GlobalSetup>]
     member this.Setup()=
-        finder <- new ConstellationFinder()
         finder.Find(System.Guid.NewGuid().ToString()) |> Seq.length |> ignore
     
     [<Params("pecca", "eugidi", "kimotoro", "unicorn", "zermont")>]

@@ -14,10 +14,10 @@ open EsiStatics
 type SolarSystemStargatesBenchmark()=
     
     let mutable solarSystem : SolarSystem option = None
-
+    let finder = new SolarSystemFinder(true)
+    
     [<IterationSetup>]
     member this.Setup()=
-        let finder = new SolarSystemFinder()
         solarSystem <- finder.Find(this.SolarSystemName) |> Seq.tryHead
     
     [<Params("Adirain", "Heild", "Jita", "Avenod", "Thera")>]
