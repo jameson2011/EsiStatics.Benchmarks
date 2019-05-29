@@ -1,4 +1,4 @@
-﻿namespace EsiStatics.Benchmarks
+namespace EsiStatics.Benchmarks
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
@@ -30,7 +30,7 @@ type FindRouteBenchmark()=
 
 
     [<Benchmark>]
-    member this.FindRoute() =
+    member this.FindEuclideanRoute() =
         let start = fromSolarSystem |> Option.get
         let finish = toSolarSystem |> Option.get
 
@@ -38,3 +38,11 @@ type FindRouteBenchmark()=
         
         route |> Seq.length
 
+  [<Benchmark>]
+    member this.FindDijkstraRoute() =
+        let start = fromSolarSystem |> Option.get
+        let finish = toSolarSystem |> Option.get
+
+        let route = (start, finish) |> Navigation.findRoute Navigation.dijkstraSystemDistance
+        
+        route |> Seq.length
