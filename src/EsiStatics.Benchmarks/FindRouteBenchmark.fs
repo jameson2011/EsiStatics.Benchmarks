@@ -30,7 +30,7 @@ type FindRouteBenchmark()=
 
 
     [<Benchmark>]
-member this.FindEuclideanRoute() =
+    member this.FindEuclideanRoute() =
         let start = fromSolarSystem |> Option.get
         let finish = toSolarSystem |> Option.get
 
