@@ -21,7 +21,7 @@ type FindRouteBenchmark()=
         fromSolarSystem <- finder.Find(this.FromSolarSystemName) |> Seq.tryHead
         toSolarSystem <- finder.Find(this.ToSolarSystemName) |> Seq.tryHead
     
-    [<Params("Adirain", "Heild", "Avenod", "Deepari", "QX-LIJ", "0OYZ-G", "Tsuguwa")>]
+    [<Params("Adirain", "Heild", "Avenod", "Deepari", "QX-LIJ", "0OYZ-G", "DN58-U", "RI-JB1", "MVUO-F", "Tsuguwa")>]
     member val FromSolarSystemName = "" with get, set
     
     [<Params("Jita", "Zemalu")>]
