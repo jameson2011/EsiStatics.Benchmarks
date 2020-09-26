@@ -34,7 +34,7 @@ type FindRouteBenchmark()=
         let start = fromSolarSystem |> Option.get
         let finish = toSolarSystem |> Option.get
 
-        let route = (start, finish) |> Navigation.findRoute Navigation.euclideanSystemDistance
+        let route = (start, finish) |> Navigation.findGateRoute Navigation.euclideanSystemDistance
         
         route |> Seq.length
 
@@ -43,6 +43,6 @@ type FindRouteBenchmark()=
         let start = fromSolarSystem |> Option.get
         let finish = toSolarSystem |> Option.get
 
-        let route = (start, finish) |> Navigation.findRoute Navigation.dijkstraSystemDistance
+        let route = (start, finish) |> Navigation.findGateRoute Navigation.dijkstraSystemDistance
         
         route |> Seq.length
