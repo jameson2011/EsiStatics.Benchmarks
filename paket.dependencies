@@ -1,7 +1,7 @@
 source https://www.nuget.org/api/v2
 
 nuget BenchmarkDotNet 0.11.5
-nuget EsiStatics prerelease
+nuget EsiStatics 
 nuget FSharp.Core 4.6.2
 // [ FAKE GROUP ]
 group Build
