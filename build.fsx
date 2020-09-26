@@ -16,6 +16,8 @@ let buildOptions = fun (opts: DotNet.BuildOptions) ->
                                 { opts with
                                     Configuration = DotNet.BuildConfiguration.Release
                                     OutputPath = buildLibDir |> Path.combine "../../" |> Some
+                                    MSBuildParams = { opts.MSBuildParams with 
+                                                                DisableInternalBinLog = true }
                                 } 
 
 Target.create "Clean" (fun _ ->
