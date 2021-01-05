@@ -25,6 +25,7 @@
     <Compile Include="ConstellationFinderBenchmark.fs" />
     <Compile Include="SolarsSystemFinderBenchmark.fs" />
     <Compile Include="SolarSystemDistanceFinderBenchmark.fs" />
+    <Compile Include="JumpNavigatorBenchmark.fs" />
     <Compile Include="ItemTypesFinderBenchmark.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
