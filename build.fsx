@@ -34,7 +34,7 @@ Target.create "Build" (fun _ ->
     |> Seq.iter (DotNet.build buildOptions)
 )
 
-Target.create "Run" (fun _ -> DotNet.exec id execPath "" |> ignore)
+Target.create "Run" (fun _ -> DotNet.exec id execPath "-f *" |> ignore)
     
 
 Target.create "All" ignore

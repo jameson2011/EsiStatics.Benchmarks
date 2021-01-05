@@ -24,6 +24,7 @@
     <Compile Include="RegionFinderBenchmark.fs" />
     <Compile Include="ConstellationFinderBenchmark.fs" />
     <Compile Include="SolarsSystemFinderBenchmark.fs" />
+    <Compile Include="SolarSystemDistanceFinderBenchmark.fs" />
     <Compile Include="ItemTypesFinderBenchmark.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
