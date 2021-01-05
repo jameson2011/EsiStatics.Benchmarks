@@ -47,12 +47,11 @@ type JumpNavigatorBenchmark()=
         let ship = itemTypeFinder.Find(this.Ship) |> Seq.head
         let start = systemFinder.Find(this.StartSolarSystem) |> Seq.head
         let dest = systemFinder.Find(this.DestinationSolarSystem) |> Seq.head
-        let route = [| start; dest |]
-
+        
         let plan = JumpPlan.empty 
                     |> JumpPlan.setCalibration this.JumpCalibration
                     |> JumpPlan.setConservation this.JumpConservation
-                    |> JumpPlan.setRoute route
+                    |> JumpPlan.setRoute [| start; dest |]
                     |> JumpPlan.setShip ship
                     |> JumpPlan.setDistanceWeight this.DistanceWeight
                     |> JumpPlan.setStationDockingWeight this.StationDockingWeight
@@ -61,6 +60,5 @@ type JumpNavigatorBenchmark()=
 
         let routeFinder = new JumpNavigator(plan)
 
-        let route = routeFinder.FindRoute()
+        routeFinder.FindRoute()
 
-        route
