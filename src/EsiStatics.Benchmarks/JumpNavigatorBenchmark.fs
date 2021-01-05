@@ -24,6 +24,24 @@ type JumpNavigatorBenchmark()=
     [<Params("sin", "thanatos", "rhea")>]
     member val Ship = "" with get, set
 
+    [<Params(4, 5)>]
+    member val JumpCalibration = 5 with get, set
+
+    [<Params(4, 5)>]
+    member val JumpConservation = 5 with get, set
+
+    [<Params(1.)>]
+    member val DistanceWeight = 1. with get, set
+
+    [<Params(1.)>]
+    member val StationDockingWeight = 1. with get, set
+
+    [<Params(1.)>]
+    member val AvoidPochvenWeight = 1. with get, set
+
+    [<Params(1.)>]
+    member val EmptyStationsWeight = 1. with get, set
+
     [<Benchmark>]
     member this.Find() =
         let ship = itemTypeFinder.Find(this.Ship) |> Seq.head
@@ -32,14 +50,14 @@ type JumpNavigatorBenchmark()=
         let route = [| start; dest |]
 
         let plan = JumpPlan.empty 
-                    |> JumpPlan.setCalibration 5
-                    |> JumpPlan.setConservation 5
+                    |> JumpPlan.setCalibration this.JumpCalibration
+                    |> JumpPlan.setConservation this.JumpConservation
                     |> JumpPlan.setRoute route
                     |> JumpPlan.setShip ship
-                    |> JumpPlan.setDistanceWeight 1.
-                    |> JumpPlan.setStationDockingWeight 0.
-                    |> JumpPlan.setAvoidPochvenWeight 1.
-                    |> JumpPlan.setEmptyStationsWeight 0.
+                    |> JumpPlan.setDistanceWeight this.DistanceWeight
+                    |> JumpPlan.setStationDockingWeight this.StationDockingWeight
+                    |> JumpPlan.setAvoidPochvenWeight this.AvoidPochvenWeight
+                    |> JumpPlan.setEmptyStationsWeight this.EmptyStationsWeight
 
         let routeFinder = new JumpNavigator(plan)
 
