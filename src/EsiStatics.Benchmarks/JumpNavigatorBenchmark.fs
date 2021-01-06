@@ -18,10 +18,10 @@ type JumpNavigatorBenchmark()=
     [<Params("adirain", "schoorasana" )>]
     member val StartSolarSystem = "" with get, set
 
-    [<Params("heild", "avenod", "1-NKVT")>]
+    [<Params("heild", "avenod")>]
     member val DestinationSolarSystem = "" with get, set
 
-    [<Params("sin", "thanatos", "rhea")>]
+    [<Params("thanatos", "rhea")>]
     member val Ship = "" with get, set
 
     [<Params(4, 5)>]
