@@ -7,7 +7,7 @@ open BenchmarkDotNet.Jobs
 open EsiStatics
 
 
-[<CoreJob>]
+[<SimpleJob>]
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
 [<GcServer(true)>]
