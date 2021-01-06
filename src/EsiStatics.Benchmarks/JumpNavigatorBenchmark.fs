@@ -15,19 +15,19 @@ type JumpNavigatorBenchmark()=
     let systemFinder = new SolarSystemFinder(true)
     let itemTypeFinder = new ItemTypesFinder()
 
-    [<Params("adirain", "schoorasana" )>]
+    [<Params("adirain", "schoorasana", "1-nkvt" )>]
     member val StartSolarSystem = "" with get, set
 
-    [<Params("heild", "avenod")>]
+    [<Params("avenod")>]
     member val DestinationSolarSystem = "" with get, set
 
-    [<Params("thanatos", "rhea")>]
+    [<Params("sin", "thanatos", "rhea")>]
     member val Ship = "" with get, set
 
-    [<Params(4, 5)>]
+    [<Params(5)>]
     member val JumpCalibration = 5 with get, set
 
-    [<Params(4, 5)>]
+    [<Params(5)>]
     member val JumpConservation = 5 with get, set
 
     [<Params(1.)>]
