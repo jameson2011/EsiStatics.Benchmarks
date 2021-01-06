@@ -14,6 +14,7 @@ type JumpNavigatorBenchmark()=
 
     let systemFinder = new SolarSystemFinder(true)
     let itemTypeFinder = new ItemTypesFinder()
+    let distanceFinder = new SolarSystemDistanceFinder(true)
 
     [<Params("adirain", "schoorasana", "poitot" )>]
     member val StartSolarSystem = "" with get, set
@@ -58,7 +59,7 @@ type JumpNavigatorBenchmark()=
                     |> JumpPlan.setAvoidPochvenWeight this.AvoidPochvenWeight
                     |> JumpPlan.setEmptyStationsWeight this.EmptyStationsWeight
 
-        let routeFinder = new JumpNavigator(plan)
+        let routeFinder = new JumpNavigator(plan, distanceFinder)
 
         routeFinder.FindRoute()
 
