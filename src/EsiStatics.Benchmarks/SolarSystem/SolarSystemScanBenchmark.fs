@@ -1,4 +1,4 @@
-﻿namespace EsiStatics.Benchmarks
+﻿namespace EsiStatics.Benchmarks.SolarSystem
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running

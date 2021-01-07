@@ -6,5 +6,5 @@ module Program=
 
     [<EntryPoint>]
     let main argv =
-        BenchmarkSwitcher.FromAssembly(typedefof<SolarSystemGetBenchmark>.Assembly).Run(argv) |> ignore
+        BenchmarkSwitcher.FromAssembly(typedefof<SolarSystem.SolarSystemGetBenchmark>.Assembly).Run(argv) |> ignore
         0

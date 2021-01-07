@@ -1,4 +1,4 @@
-namespace EsiStatics.Benchmarks
+namespace EsiStatics.Benchmarks.Routes
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running

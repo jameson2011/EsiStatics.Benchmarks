@@ -1,4 +1,4 @@
-namespace EsiStatics.Benchmarks
+﻿namespace EsiStatics.Benchmarks.SolarSystem
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
@@ -9,12 +9,12 @@ open BenchmarkDotNet.Jobs
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
 [<GcServer(true)>]
-type MoonGetBenchmark()=
+type PlanetGetBenchmark()=
     
-    [<Params(40316915,40316926,40316964,40316965)>]
-    member val MoonId = 0 with get, set
+    [<Params(40316914,40316928,40316961,40316966)>]
+    member val PlanetID = 0 with get, set
     
     [<Benchmark>]
-    member this.GetMoon() =
-        EsiStatics.Moons.byId this.MoonId
+    member this.GetPlanet() =
+        EsiStatics.Planets.byId this.PlanetID
 

@@ -34,14 +34,22 @@ Target.create "Build" (fun _ ->
     |> Seq.iter (DotNet.build buildOptions)
 )
 
-Target.create "Run" (fun _ -> DotNet.exec id execPath "-f *" |> ignore)
+Target.create "Run Universe Benchmarks" (fun _ -> DotNet.exec id execPath "-f EsiStatics.Benchmarks.Universe.*" |> ignore)
+
+Target.create "Run Item Type Benchmarks" (fun _ -> DotNet.exec id execPath "-f EsiStatics.Benchmarks.ItemTypes.*" |> ignore)
     
+Target.create "Run Solar System Benchmarks" (fun _ -> DotNet.exec id execPath "-f EsiStatics.Benchmarks.SolarSystem.*" |> ignore)
+
+Target.create "Run Routes Benchmarks" (fun _ -> DotNet.exec id execPath "-f EsiStatics.Benchmarks.Routes.*" |> ignore)
 
 Target.create "All" ignore
 
 "Clean"
   ==> "Build"
-  ==> "Run"
+  ==> "Run Universe Benchmarks"
+  ==> "Run Item Type Benchmarks"
+  ==> "Run Solar System Benchmarks"
+  ==> "Run Routes Benchmarks"
   ==> "All"
 
 Target.runOrDefault "All"

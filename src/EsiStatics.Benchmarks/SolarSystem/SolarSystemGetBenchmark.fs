@@ -1,9 +1,10 @@
-﻿namespace EsiStatics.Benchmarks
+﻿namespace EsiStatics.Benchmarks.SolarSystem
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
 open BenchmarkDotNet.Configs
 open BenchmarkDotNet.Jobs
+open EsiStatics.Benchmarks
 
 [<SimpleJob>]
 [<MemoryDiagnoser>]
@@ -15,6 +16,6 @@ type SolarSystemGetBenchmark()=
     member val SolarSystemId = 0 with get, set
     
     [<Benchmark>]
-    member this.GetSystem() =
+    member this.GetSystemById() =
         EsiStatics.SolarSystems.byId this.SolarSystemId
 

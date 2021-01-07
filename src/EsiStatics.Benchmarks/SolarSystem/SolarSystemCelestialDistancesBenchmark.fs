@@ -1,4 +1,4 @@
-﻿namespace EsiStatics.Benchmarks
+﻿namespace EsiStatics.Benchmarks.SolarSystem
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
@@ -11,11 +11,11 @@ open EsiStatics
 [<MemoryDiagnoser>]
 [<RankColumn>][<MinColumn>][<Q1Column>][<Q3Column>][<MaxColumn>]
 [<GcServer(true)>]
-type SolarSystemCelestialsBenchmark()=
+type SolarSystemCelestialDistancesBenchmark()=
     
     let mutable solarSystem : SolarSystem option = None
-    let mutable finder = new SolarSystemFinder(true)
-   
+    let finder = new SolarSystemFinder(true)
+    
     [<IterationSetup>]
     member this.Setup()=
         solarSystem <- finder.Find(this.SolarSystemName) |> Seq.tryHead
@@ -24,8 +24,13 @@ type SolarSystemCelestialsBenchmark()=
     member val SolarSystemName = "" with get, set
     
     [<Benchmark>]
-    member this.GetCelestials() =
-        ( Option.get solarSystem ).Celestials() |> Seq.length
+    member this.GetCelestialDistance() =
+        
+        let pos = Position.ofCoordinates(1., 1., 1.)
+
+        let celestials = pos |> SolarSystemExts.CelestialDistances (Option.get solarSystem) |> List.ofSeq
+        
+        celestials |> List.head
         
         
         

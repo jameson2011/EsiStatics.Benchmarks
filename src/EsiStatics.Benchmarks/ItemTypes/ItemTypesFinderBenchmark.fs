@@ -1,4 +1,4 @@
-namespace EsiStatics.Benchmarks
+namespace EsiStatics.Benchmarks.ItemTypes
 
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
