@@ -50,16 +50,16 @@ type JumpNavigatorBenchmark()=
         let dest = systemFinder.Find(this.DestinationSolarSystem) |> Seq.head
         
         let plan = JumpPlan.empty 
-                    |> JumpPlan.setCalibration this.JumpCalibration
-                    |> JumpPlan.setConservation this.JumpConservation
-                    |> JumpPlan.setRoute [| start; dest |]
-                    |> JumpPlan.setShip ship
-                    |> JumpPlan.setDistanceWeight this.DistanceWeight
-                    |> JumpPlan.setStationDockingWeight this.StationDockingWeight
-                    |> JumpPlan.setAvoidPochvenWeight this.AvoidPochvenWeight
-                    |> JumpPlan.setEmptyStationsWeight this.EmptyStationsWeight
+                    |> JumpRouteNavigation.calibration this.JumpCalibration
+                    |> JumpRouteNavigation.conservation this.JumpConservation
+                    |> JumpRouteNavigation.route [| start; dest |]
+                    |> JumpRouteNavigation.ship ship
+                    |> JumpRouteNavigation.distanceWeight this.DistanceWeight
+                    |> JumpRouteNavigation.stationDockingWeight this.StationDockingWeight
+                    |> JumpRouteNavigation.avoidPochvenWeight this.AvoidPochvenWeight
+                    |> JumpRouteNavigation.emptyStationsWeight this.EmptyStationsWeight
 
-        let routeFinder = new JumpNavigator(plan, distanceFinder)
+        JumpRouteNavigation.findRoute distanceFinder plan
 
-        routeFinder.FindRoute()
+        
 
