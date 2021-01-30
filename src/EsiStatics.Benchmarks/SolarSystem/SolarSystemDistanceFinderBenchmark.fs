@@ -13,7 +13,7 @@ open EsiStatics
 
 type SolarSystemDistanceFinderBenchmark()=
 
-    let finder = new SolarSystemDistanceFinder(false)
+    let finder = new SolarSystemDistanceFinder()
     let systemFinder = new SolarSystemFinder(true)
 
     [<Params("adirain", "heild", "avenod", "deepari", "QX-LIJ", "0OYZ-G", "tsuguwa", "jita", "zemalu")>]
