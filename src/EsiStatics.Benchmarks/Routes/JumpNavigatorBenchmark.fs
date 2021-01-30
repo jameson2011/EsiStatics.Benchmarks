@@ -17,7 +17,7 @@ type JumpNavigatorBenchmark()=
     let distanceFinder = new SolarSystemDistanceFinder()
     let systemInfoFinder = { new ISolarSystemInfoProvider with member this.GetSolarSystemInfos() = [| |] }
 
-    [<Params("adirain", "schoorasana", "poitot" )>]
+    [<Params("adirain", "schoorasana", "poitot", "m2-xfe" )>]
     member val StartSolarSystem = "" with get, set
 
     [<Params("avenod")>]
@@ -50,17 +50,13 @@ type JumpNavigatorBenchmark()=
         let start = systemFinder.Find(this.StartSolarSystem) |> Seq.head
         let dest = systemFinder.Find(this.DestinationSolarSystem) |> Seq.head
         
-        let plan = JumpPlan.empty 
-                    |> JumpRouteNavigation.calibration this.JumpCalibration
-                    |> JumpRouteNavigation.conservation this.JumpConservation
-                    |> JumpRouteNavigation.route [| start; dest |]
-                    |> JumpRouteNavigation.ship ship
-                    |> JumpRouteNavigation.distanceWeight this.DistanceWeight
-                    |> JumpRouteNavigation.stationDockingWeight this.StationDockingWeight
-                    |> JumpRouteNavigation.avoidPochvenWeight this.AvoidPochvenWeight
-                    |> JumpRouteNavigation.emptyStationsWeight this.EmptyStationsWeight
-
-        JumpRouteNavigation.findRoute distanceFinder systemInfoFinder plan
-
-        
-
+        JumpPlan.empty 
+            |> JumpRouteNavigation.calibration this.JumpCalibration
+            |> JumpRouteNavigation.conservation this.JumpConservation
+            |> JumpRouteNavigation.route [| start; dest |]
+            |> JumpRouteNavigation.ship ship
+            |> JumpRouteNavigation.distanceWeight this.DistanceWeight
+            |> JumpRouteNavigation.stationDockingWeight this.StationDockingWeight
+            |> JumpRouteNavigation.avoidPochvenWeight this.AvoidPochvenWeight
+            |> JumpRouteNavigation.emptyStationsWeight this.EmptyStationsWeight
+            |> JumpRouteNavigation.findRoute distanceFinder systemInfoFinder 
