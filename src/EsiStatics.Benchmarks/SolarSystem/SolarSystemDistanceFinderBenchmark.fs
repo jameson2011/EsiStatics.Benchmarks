@@ -27,7 +27,7 @@ type SolarSystemDistanceFinderBenchmark()=
         let sys = systemFinder.Find(this.SolarSystemName) |> Seq.head
         let distance = this.Distance * (1.<LY>)
 
-        finder.Find sys distance
+        finder.Find distance sys 
         
         
         
